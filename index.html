@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX OSM</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                TESTE
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        jQuery(function($) {
+
+            var osmUrl = "https://nominatim.openstreetmap.org/search";
+            var osmUrl2 = "https://nominatim.openstreetmap.org/search/Tanicã, 94 Naviraí MS";
+            var status = "https://nominatim.openstreetmap.org/status.php";
+
+            $.ajax({
+                url: osmUrl,
+                type: "get",
+                dataType: "json",
+                crossDomain: true,
+                data: {
+                    street: "Tanicã",
+                    city: "Naviraí",
+                    country: "Brasil",
+                    format: "json"
+                },
+                success: function(response) {
+
+                    let data = response[0];
+                    console.log(data.display_name);
+
+                    console.log("Data: ", data);
+
+
+                }
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
